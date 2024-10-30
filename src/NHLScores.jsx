@@ -63,7 +63,7 @@ function NHLScores() {
           <h3>{selectedGame.header.competitions[0].competitors[1].team.displayName} at {""}
               {selectedGame.header.competitions[0].competitors[0].team.displayName}
           </h3>
-          <p>Status: {selectedGame.header.competitions[0].status.type.shortDetail}</p>
+          <p>Status - {selectedGame.header.competitions[0].status.type.shortDetail}</p>
         </div>
       ) : (
         <ul className="games-list">
