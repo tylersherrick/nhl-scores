@@ -11,7 +11,7 @@ function NHLScores() {
   useEffect(() => {
     const fetchGames = async () => {
       try {
-        const response = await axios.get('http://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard');
+        const response = await axios.get('https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard');
         setGames(response.data.events);
         setLoading(false);
       } catch (err) {
@@ -25,7 +25,7 @@ function NHLScores() {
 
   const fetchGameDetails = async (gameId) => {
     try {
-      const response = await axios.get(`http://site.api.espn.com/apis/site/v2/sports/hockey/nhl/summary?event=${gameId}`);
+      const response = await axios.get(`https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/summary?event=${gameId}`);
       setSelectedGame(response.data);
     } catch (err) {
       console.error('Error fetching game details');
