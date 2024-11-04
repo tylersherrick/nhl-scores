@@ -3,29 +3,18 @@
   padding: 0;
 }
 
-.site-heading, .league-name {
-  display: flex;
+.site-heading {
   margin: 1%;
 }
 
 .league-name {
-  margin-top: .5%;
+  margin: 2%;
 }
 
 .game-item {
-  display: flex;
-  margin: 1% 3%;
-}
-
-.games-list {
-  margin: 1%;
-  list-style-type: none;
-}
-
-.each-game {
-  margin: 1%;
+  margin: 3%;
 }
 
 .show-less-btn {
-  margin-left: 2%;
+  margin-left: 1%;
 }

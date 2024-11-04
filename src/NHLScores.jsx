@@ -44,8 +44,8 @@ function NHLScores() {
     }
   };
 
-  if (loading) return <p className='game-item'>Loading...</p>;
-  if (error) return <p className='game-item'>{error}</p>;
+  if (loading) return <p className=''>Loading...</p>;
+  if (error) return <p className=''>{error}</p>;
 
   return (
     <div className="nhl-scores">
@@ -59,24 +59,18 @@ function NHLScores() {
       </h3>
 
       {selectedGame ? (
-        <div className="game-details games-list">
-          <h3>{selectedGame.header.competitions[0].competitors[1].team.displayName} at {""}
+        <div className=''>
+          <p className='game-item'>{selectedGame.header.competitions[0].competitors[1].team.displayName} at {""}
               {selectedGame.header.competitions[0].competitors[0].team.displayName}
-          </h3>
-          <p>Status: {selectedGame.header.competitions[0].status.type.shortDetail}</p>
+          </p>
+          <p className='game-item'>Status: {selectedGame.header.competitions[0].status.type.shortDetail}</p>
         </div>
       ) : (
-        <ul className="games-list">
-          {(showAll ? games : games.slice(0, 3)).map((game) => (
-            <li
-              className='each-game'
-              key={game.id}
-              onClick={() => handleGameClick(game.id)}
-            >
+          (showAll ? games : games.slice(0, 3)).map((game) => (
+            <p className='game-item' key={game.id} onClick={() => handleGameClick(game.id)}>
               {game.name} - {game.status.type.shortDetail}
-            </li>
-          ))}
-        </ul>
+            </p>
+          ))
       )}
     </div>
   );
