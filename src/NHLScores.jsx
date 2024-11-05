@@ -61,23 +61,31 @@ function NHLScores() {
       </h3>
 
       {selectedGame ? (
-        <div className=''>
-          <p className='game-item'>{selectedGame.header.competitions[0].competitors[1].team.displayName} at {""}
-              {selectedGame.header.competitions[0].competitors[0].team.displayName}
-          </p> 
-          <p className='game-item'>{selectedGame.header.competitions[0].status.type.detail}</p>
+        <div className="nhl-data">
+          <div className="game-row">
+            <div className="game-info">
+              <p className="game-details">
+                {selectedGame.header.competitions[0].status.type.detail}
+              </p>
+              <br />
+              <p className="game-details">{selectedGame.header.competitions[0].competitors[1].team.displayName}</p>
+              <p>{selectedGame.header.competitions[0].competitors[0].team.displayName}</p>
+            </div>
+          </div>
         </div>
       ) : (
-          (showAll ? games : games.slice(0, 3)).map((game) => (
-            <div className='game-item game' key={game.id} onClick={() => handleGameClick(game.id)}>
-              <p>{game.competitions[0].competitors[1].team.displayName} 
-                  {" "}at{" "}
-                  {game.competitions[0].competitors[0].team.displayName}
-
-              </p> <br/>
-              <p>{game.status.type.detail}</p>      
+        <div className="nhl-data">
+          {(showAll ? games : games.slice(0, 3)).map((game) => (
+            <div className="game-row" key={game.id} onClick={() => handleGameClick(game.id)}>
+              <div className="game-info">
+                <p className="game-details">{game.status.type.detail}</p>
+                <br />
+                <p className="game-details">{game.competitions[0].competitors[1].team.displayName}</p>
+                <p>{game.competitions[0].competitors[0].team.displayName}</p>
+              </div>
             </div>
-          ))
+          ))}
+        </div>
       )}
     </div>
   );

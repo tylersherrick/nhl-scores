@@ -11,16 +11,37 @@
   margin: 2%;
 }
 
-.game-item {
-  margin: 3%;
-}
-
 .show-less-btn {
   margin-left: 1%;
 }
 
-.game  {
-  width: 80%;
+.nhl-data {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 10px;
+}
+
+.game-row {
+  display: flex;
+  align-items: center;
   border: 1px solid black;
-  padding: 5px;
+  padding: 1%;
+  margin-left: 3%; 
+  margin-top: 1%;
+  width: calc(30% - 10px); 
+  box-sizing: border-box;
+}
+
+
+.game-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1; 
+}
+
+@media (max-width: 600px) {
+  .game-row {
+      width: calc(100% - 10px); 
+      margin: 1% 5% 1% 5%;
+  }
 }
