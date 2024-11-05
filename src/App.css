@@ -18,3 +18,9 @@
 .show-less-btn {
   margin-left: 1%;
 }
+
+.game  {
+  width: 80%;
+  border: 1px solid black;
+  padding: 5px;
+}

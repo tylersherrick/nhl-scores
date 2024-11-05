@@ -14,6 +14,7 @@ function NHLScores() {
         const response = await axios.get('https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard');
         setGames(response.data.events);
         setLoading(false);
+        console.log(response)
       } catch (err) {
         setError('Error fetching data');
         setLoading(false);
@@ -35,6 +36,7 @@ function NHLScores() {
   const handleGameClick = (gameId) => {
     fetchGameDetails(gameId);
   };
+
 
   const toggleShowAll = () => {
     if (selectedGame) {
@@ -62,14 +64,19 @@ function NHLScores() {
         <div className=''>
           <p className='game-item'>{selectedGame.header.competitions[0].competitors[1].team.displayName} at {""}
               {selectedGame.header.competitions[0].competitors[0].team.displayName}
-          </p>
-          <p className='game-item'>Status: {selectedGame.header.competitions[0].status.type.shortDetail}</p>
+          </p> 
+          <p className='game-item'>{selectedGame.header.competitions[0].status.type.detail}</p>
         </div>
       ) : (
           (showAll ? games : games.slice(0, 3)).map((game) => (
-            <p className='game-item' key={game.id} onClick={() => handleGameClick(game.id)}>
-              {game.name} - {game.status.type.shortDetail}
-            </p>
+            <div className='game-item game' key={game.id} onClick={() => handleGameClick(game.id)}>
+              <p>{game.competitions[0].competitors[1].team.displayName} 
+                  {" "}at{" "}
+                  {game.competitions[0].competitors[0].team.displayName}
+
+              </p> <br/>
+              <p>{game.status.type.detail}</p>      
+            </div>
           ))
       )}
     </div>
